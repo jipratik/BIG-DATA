@@ -1,0 +1,19 @@
+use vgr
+db.createCollection("pratik")
+show dbs
+show collections
+db.pratik.insertOne({name:"pratik",age:"50",gender:"male"})
+db.pratik.insertMany([{name:"gowtham",age:"20",gender:"male"},{name:"pratik",age:"22",gender:"unknown"}])
+db.pratik.find()
+db.pratik.updateOne({name:"pratik"},{$set:{age:"21"}})
+//db.pratik.updateMany({name:"pratik"},{$set:{age:"21"}})
+//db.pratik.find().limit(2)
+//db.pratik.find().skip(2)
+//db.pratik.find().sort({name:"1"})
+//db.pratik.findOne({name:"pratik"})
+//db.pratik.find({$and:[{age:"20"},{gender:"male"}]})
+//db.pratik.find({$or:[{$and:[{age:"20"},{gender:"male"}]},{$and:[{age:"22"},{gender:"unknown"}]}]})
+//db.pratik.find({age:{$not:{$lt:"21"}}})
+db.pratik.createIndex({name:2,gender:-1})
+db.pratik.getIndexes()
+db.pratik.aggregate([{$group:{_id:"$by_user",num_turotial:{$sum:4}}}])
